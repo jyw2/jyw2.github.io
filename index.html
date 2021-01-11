@@ -15,54 +15,81 @@
     <nav>
         <div id="nav_links">
             <a href="index.html">Development</a>
-            <a href="pricing.html">Visual Arts</a>
+            <a href="visualarts.html">Visual Arts</a>
            
         
     </nav>
 
 
     <section>
-
+        <h1>Development</h1>
         
-        <h2>2D Fighting Pipeline Development</h2>
+        <h2>2D Fighter Pipeline Development</h2>
 
-        <h3>During the time I lead a small team of four in the development of a 2D fighting game,
-            I had the oppurtunity to develop and smooth out many pipelines and templates to connect my
+        <h3>During the time I lead a small team of four in the development of a 2D fighting game in Unreal Engine 4,
+            I had the oppurtunity to develop many pipelines and templates to connect my
         artists and programmers. </h3>
+        <img src="assets/fighter/Intro.png" alt="">
 
         <p> To assist the creation of animation, I created and broke down the important animations needed for 
             every character.
         </p>
+        <img src="assets/fighter/breakdowns.jpg" alt="">
         
         <p>
             I created a workflow for my artists to follow to go from idea to implementable animation. 
             To do this I created templates for animation frames to keep consistant proportions and perspective.
             I determined that 2048x2048 was the optimum size for sprites to retain quality while keeping file size lower. 
+            <br>Note: The background image used for screen size reference is not created by me, it is from the game: "Guilty Gear XRD Rev2"
+            
+        </p><img src="assets/fighter/Animationbase.jpg" alt="">
+        <img src="assets/fighter/Backgroundsizetmplate.jpg" alt="">
+
+        <p>
             These templates were created through extensive research in the strategies of other fighting games.
+            <span class = "subtext"> Images taken from: Street fighter 3rd strike, Under Night In Birth, Skullgirls,
+                 King of Fighters and Blazblue</span>
         </p>
+        <img src="assets/fighter/Research.jpg" alt="">
 
         <p>
             The workflow conisted of roughing the animation keys in the template files, then painting tones
             directly in black and white for inbetweens and keys, and finally outlining the edge for each frame. 
-            We would then export each image as a TGA file. 
+            We would then export each image as a TGA file. The images where then proccessed into Unreal engine
+            "flipbooks" for runtime. The programs used included: Photoshop, Clipstudio and Krita.
         </p>
+        <img src="assets/fighter/Workflow.jpg" alt="">
 
 
 
         <p>
-            I also created and taught my artists to use a color pallete and non-antiailising workflow.
+            I also taught my artists to use a color pallete system and non-antiailising workflow.
         </p>
+        <img src="assets/fighter/Color_grey_diant.jpg" alt="">
+        <img src="assets/fighter/ref.png" alt="">
+
+        <p>
+            The pallete system worked by
+        mapping the specific pixel of shade on one black and white reference pallete to the colored
+        pixel on the colored reference pallete with the same x value. Using this map, it would replace any 
+        shade in the image with that specific value to the mapped color. A demonstration can be viewed below.
+        The method was mainly derived from 
+        <a href="https://www.reddit.com/r/unrealengine/comments/6bkjnn/how_can_i_palette_swap_in_a_material/">a forum post</a>
+        </p>
+        <video src="assets/fighter/2021-01-11 14-09-26.mp4" type = "video/mp4" controls></video>
 
         <p>
             In order to keep a consistant style, I created reference sheets to draw from.
         </p>
+        <img src="assets/fighter/stylef.png" alt="">
+        <img src="assets/fighter/scale.jpg" alt="">
        
 
 
 
 
 
-        <h1>Development</h1>
+        
 
         <h2>FIGHTING GAME INPUT SYSTEM</h2>
         <p>I wanted to solve a problem: How do 2d fighters (like street fighter) interpert 
@@ -110,7 +137,7 @@
             index. When an input is added, it is placed at the index of the beginning, replacing
             the previous value. The end and beg indeces are then shifted one to the right, which
             shifts the new input to the end index and the oldest input to the beg index.
-            The beg and end indeces will also wrap back around to the left once the reach the end of the array.
+            The beg and end indeces will also wrap back around to the left once they reach the end of the array.
         </p>
         <img src="assets/inputsystem/img7.JPG" alt="">
 
@@ -172,53 +199,9 @@
             For more information visit the <a href="https://github.com/jyw2/Input-System">github repo.</a>
         </p>
         
-      
+        <a href="visualarts.html" class = "navigationbutton">View Visual Arts portfolio</a>
 
-        
-
-
-        <h2>2D Fighting Game Pallete Development</h2>
-
-        <h3>While developing a 2d fighting game in unreal engine 4, 
-            I wanted to create a pallete switching system. I knew recoloring every frame was
-        not an option if I wanted a gamut of palletes, so I needed a better solution.</h3>
-
-        <p>I had a vague premonition to use textures, but nothing solid, so I went searching.</p>
-
-        <p>
-            Looking for the code in older games such as street fighter 3 and king of 
-            fighters proved difficult. This was because most of the source codes of these
-            games where still un-obtainable.
-        </p>
-
-        <p>
-            Eventually, I learned that the game "Skullgirls" used agradient based color replacement system for switching.
-        </p>
-
-        <!-- <p>With more research and by parusing through forums, I discovered a way
-            to replace a BNW gradient an with associated Color gradient. It did so by
-            mapping the specific pixel of shade on one BNW refernce texture to the colored
-            pixel on the colored reference gradient with the same x value. Using this map, it would replace any 
-            shade in the image with that specific value to the mapped color. 
-        </p>
-
-        <p>This however, was not exactly what I was looking for. Since I was using cell shaded
-            sprites, I needed only to use a few distinct shades. So to use this system for palletes,
-            I created two large textures, one colored and one black and white with large colored blocks
-            instead of gradients. This way, even if there was a bit of error on mapping, I would always get the 
-            desired pallete. 
-        </p> -->
-
-        <p>
-            Using this system lead to some issues with anti-aliasing and image transforms (as they would cause shades that 
-            were not in the reference texture to appear), but they where solved by using "nearest neighbor transforms"
-            and removing all image compression and anti-aliasing. 
-        </p>
-
-        <p>The result was a pallete system that allowed for a new pallete for each color texture produced.</p>
-
-
-
+        <h2>  </h2>
     </section>
 
     
