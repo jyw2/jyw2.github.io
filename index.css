@@ -1,3 +1,39 @@
-h1{
+body {
+    font-family: 'Noto Sans', sans-serif;
+    color: white;
+    margin:0;
+    padding: 0;
+    background-color: rgb(95, 95, 95);
     
+}
+
+section {
+    width:70%;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom:  0px;
+    background-color: rgb(243, 235, 235);
+    color: rgb(37, 37, 37);
+    box-shadow: 0px 0px 100px 50px rgb(110, 41, 41); 
+    text-align:center;
+}
+
+section p {
+    color: rgb(53, 53, 53);
+    
+    margin:2em 6em;
+}
+h1 {
+    font-size: 50px;
+    margin: auto;
+    padding-top: 100px;
+    text-transform: uppercase;
+    letter-spacing: 17px;
+    color: black;
+    
+}
+h2 {
+    padding-top:50px;
+    letter-spacing: 8px;
+    color: rgb(44, 44, 44)
 }
