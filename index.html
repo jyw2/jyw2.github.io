@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="index.css">
+    
+</head>
+<body>
+    <nav>
+        <div id="nav_links">
+            <a href="index.html">Development</a>
+            <a href="pricing.html">Visual Arts</a>
+           
+        
+    </nav>
+
+    <h1>Development</h1>
+    <section>
+        <h2>Fighting Game Input System</h2>
+        <p>Problem: How do 2d fighters interpert 
+        commands like down-left-right-punch and turn them into fireballs?</p>
+
+        <p>I began by planning what the system would need. other than the basic task of
+            correctly reading the input, it would also have to use a set time frame, include 
+            leniency for wrong inputs and prevent input conflicts.
+        </p>
+
+        <p>
+            Next, I came up with the general idea for how to store the inputs. My solution: 
+            a cyclical array. 
+        </p>
+        
+        <p>
+            I continued planning by figuring out how to solve each of the aformentioned
+            additional requirements.
+        </p>
+
+        <p>
+            Finally, I rounded out the planning stage with a general class outline.
+        </p>
+
+        <p>
+            The implemented code stores any special move as a class-
+        </p>
+
+        <p>
+            and the stream as it's own class.
+        </p>
+
+        <p>
+            It holds all the inputs in an array, and has a distinct beginning(the oldest
+            input) and end (the most recent input) 
+            index. When an input is added, it is placed at the index of the beginning, replacing
+            the previous value. The end and beg indeces are then shifted one to the right, which
+            shifts the new input to the end index and the oldest input to the beg index.
+            The indeces will also wrap back around to the left once the reach the end of the array.
+        </p>
+
+        <p>The stream and all special moves are held in a stream reader class.</p>
+
+        <p>
+            It looks for inputs when triggered by checking each input in the stream against
+            the specific codes stored in each CMD (special move) class. 
+        </p>
+
+        
+
+    </section>
+    
+    <section>
+        <h2>2D Fighting Game Pallete Development</h2>
+    </section>
+    
+   
+
+
+    
+    
+</body>
+</html>
