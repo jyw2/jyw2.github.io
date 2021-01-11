@@ -13,7 +13,7 @@ body {
 }
 
 section {
-    width:900px;
+    width:1200px;
     margin: auto;
     margin-top: 0px;
     margin-bottom:  0px;
@@ -55,7 +55,7 @@ h1 {
 }
 h2 {
     padding-top:50px;
-    padding-bottom: 50px;
+    padding-bottom: 15px;
     letter-spacing: 8px;
     color: rgb(44, 44, 44);
     text-transform: uppercase;
@@ -69,26 +69,15 @@ h3{
     padding-bottom: 20px;
 }
 section img {
-    width: 80%;
-    margin-bottom:50px;
+    width: 100%;
+    margin-bottom:0px;
 }
 video{
-    width: 80%
+    width: 100%
 }
 
 #navigationbutton {
     text-decoration: none;
-    border: 2px solid black;
-    padding: 1em 2em;
-    box-sizing:border-box;
-    color:black;
-    margin-left: 300px;
-    margin-right:300px;
-    margin-top: 50px;
-    margin-bottom:  30px;
-    display: block;
-    border-radius: 10px;
-    font-weight: 700;
 }
 
 #navigationbutton:hover {
