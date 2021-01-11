@@ -22,45 +22,87 @@
 
 
     <section>
+
+        
+        <h2>2D Fighting Pipeline Development</h2>
+
+        <h3>During the time I lead a small team of four in the development of a 2D fighting game,
+            I had the oppurtunity to develop and smooth out many pipelines and templates to connect my
+        artists and programmers. </h3>
+
+        <p> To assist the creation of animation, I created and broke down the important animations needed for 
+            every character.
+        </p>
+        
+        <p>
+            I created a workflow for my artists to follow to go from idea to implementable animation. 
+            To do this I created templates for animation frames to keep consistant proportions and perspective.
+            I determined that 2048x2048 was the optimum size for sprites to retain quality while keeping file size lower. 
+            These templates were created through extensive research in the strategies of other fighting games.
+        </p>
+
+        <p>
+            The workflow conisted of roughing the animation keys in the template files, then painting tones
+            directly in black and white for inbetweens and keys, and finally outlining the edge for each frame. 
+            We would then export each image as a TGA file. 
+        </p>
+
+
+
+        <p>
+            I also created and taught my artists to use a color pallete and non-antiailising workflow.
+        </p>
+
+        <p>
+            In order to keep a consistant style, I created reference sheets to draw from.
+        </p>
+       
+
+
+
+
+
         <h1>Development</h1>
 
         <h2>FIGHTING GAME INPUT SYSTEM</h2>
-        <p>Problem: How do 2d fighters interpert 
+        <p>I wanted to solve a problem: How do 2d fighters (like street fighter) interpert 
         commands like down-left-right-punch and turn them into fireballs?</p>
-        <img src="assets/inputsystem/img1.jpg" alt="">
+        <img src="assets/inputsystem/Streetfighter.jpg" alt="">
 
         <p>I began by planning what the system would need. other than the basic task of
             correctly reading the input, it would also have to use a set time frame, include 
             leniency for wrong inputs and prevent input conflicts.
         </p>
-        <img src="assets/inputsystem/img2.jpg" alt="">
+        <img src="assets/inputsystem/img1.jpg" alt="">
 
         <p>
             Next, I came up with the general idea for how to store the inputs. My solution: 
             a cyclical array. 
         </p>
-        <img src="assets/inputsystem/img3.jpg" alt="">
+        <img src="assets/inputsystem/img2.jpg" alt="">
         
         <p>
             I continued planning by figuring out how to solve each of the aformentioned
             additional requirements.
         </p>
-        <img src="assets/inputsystem/img4.jpg" alt="">
+        <img src="assets/inputsystem/img3.jpg" alt="">
 
         <p>
             Finally, I rounded out the planning stage with a general class outline.
         </p>
-        <img src="assets/inputsystem/img5.JPG" alt="">
+        <img src="assets/inputsystem/img4.JPG" alt="">
 
         <p>
+           Note: the implementation uses numpad fighting game notation, more info 
+            <a href="http://www.dustloop.com/wiki/index.php/Notation">here.</a>
             The implemented code stores any special move as a class-
         </p>
-        <img src="assets/inputsystem/img6.JPG" alt="">
+        <img src="assets/inputsystem/img5.JPG" alt="">
 
         <p>
             and the stream as it's own class.
         </p>
-        <img src="assets/inputsystem/img7.JPG" alt="">
+        <img src="assets/inputsystem/img6.JPG" alt="">
 
         <p>
             It holds all the inputs in an array, and has a distinct beginning(the oldest
@@ -70,16 +112,18 @@
             shifts the new input to the end index and the oldest input to the beg index.
             The beg and end indeces will also wrap back around to the left once the reach the end of the array.
         </p>
-        <img src="assets/inputsystem/img8.1.JPG" alt="">
-        <img src="assets/inputsystem/img8.2.JPG" alt="">
+        <img src="assets/inputsystem/img7.JPG" alt="">
 
         <p>
             The stream will also replace the oldest input with an empty
             input every few milliseconds. This creates the timing window for
             the command to be excecuted by the player.
         </p>
+        <img src="assets/inputsystem/img8.1.JPG" alt="">
+        <img src="assets/inputsystem/img8.2.JPG" alt="">
 
         <p>The stream and all special moves are held in a stream reader class.</p>
+        <img src="assets/inputsystem/img9.JPG" alt="">
 
         <p>
             It looks for inputs when triggered by checking each input in the stream against
@@ -90,44 +134,93 @@
             input a slightly off code (such as down-up-right-left-punch where down-right-punch
             is the code) and still get the desired special move.
         </p>
+        <img src="assets/inputsystem/img10.JPG" alt="">
 
         <p>
             The reader then checks for the priority of each code before outputing 
             the highest priority and most recent special move. This prevents the reader from outputting two
             special moves on the same read.
         </p>
+        <img src="assets/inputsystem/img11.JPG" alt="">
 
         <p>The Stream is then flushed to prevent the reader from reading the same stream information twice
             (which can result in unwanted specials being read) </p>
+            <img src="assets/inputsystem/img12.JPG" alt="">
 
         
         <p>
+            
             The resulting program works as follows:
         </p>
         
         <div id = "input_results">
-            <video src="assets/inputsytem/inputsytemoutput.mp4"></video>
+            <video src="assets/inputsystem/inputsytemoutput.mp4" type = "video/mp4" controls></video>
            
-            <p> First, the program Works as intended for all 3 codes.
-                Secondly, Input was down-up-right-downright-punch where the code needed was down-downright-right-punch. 
-                Fireball is still detected. Third, fireball and dragon punch both inputed, but ONLY dragon punch 
-                is outputed as it has higher priority. Lastly the timing window for inputting the whole code was passed,
-                so no output is produced.</p>
-            
+            <ul>
+                <li>First, the program Works as intended for all 3 codes.</li>
+                <li> Secondly, Input was down-up-right-downright-punch 
+                    where the code needed was down-downright-right-punch. Fireball is still detected.</li>
+                <li> Third, fireball and dragon punch both inputed, but ONLY dragon punch 
+                    is outputed as it has higher priority. </li>
+                <li>Lastly the timing window for inputting the whole code was passed,
+                    so no output is produced.</li>
+            </ul> 
+
         </div>
 
         <p>
-            For more information visit the github repo: <a href="https://github.com/jyw2/Input-System">Github Link</a>
+            For more information visit the <a href="https://github.com/jyw2/Input-System">github repo.</a>
         </p>
         
+      
 
         
 
-    </section>
-    
-    <section>
+
         <h2>2D Fighting Game Pallete Development</h2>
+
+        <h3>While developing a 2d fighting game in unreal engine 4, 
+            I wanted to create a pallete switching system. I knew recoloring every frame was
+        not an option if I wanted a gamut of palletes, so I needed a better solution.</h3>
+
+        <p>I had a vague premonition to use textures, but nothing solid, so I went searching.</p>
+
+        <p>
+            Looking for the code in older games such as street fighter 3 and king of 
+            fighters proved difficult. This was because most of the source codes of these
+            games where still un-obtainable.
+        </p>
+
+        <p>
+            Eventually, I learned that the game "Skullgirls" used agradient based color replacement system for switching.
+        </p>
+
+        <!-- <p>With more research and by parusing through forums, I discovered a way
+            to replace a BNW gradient an with associated Color gradient. It did so by
+            mapping the specific pixel of shade on one BNW refernce texture to the colored
+            pixel on the colored reference gradient with the same x value. Using this map, it would replace any 
+            shade in the image with that specific value to the mapped color. 
+        </p>
+
+        <p>This however, was not exactly what I was looking for. Since I was using cell shaded
+            sprites, I needed only to use a few distinct shades. So to use this system for palletes,
+            I created two large textures, one colored and one black and white with large colored blocks
+            instead of gradients. This way, even if there was a bit of error on mapping, I would always get the 
+            desired pallete. 
+        </p> -->
+
+        <p>
+            Using this system lead to some issues with anti-aliasing and image transforms (as they would cause shades that 
+            were not in the reference texture to appear), but they where solved by using "nearest neighbor transforms"
+            and removing all image compression and anti-aliasing. 
+        </p>
+
+        <p>The result was a pallete system that allowed for a new pallete for each color texture produced.</p>
+
+
+
     </section>
+
     
    
 
