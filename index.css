@@ -8,6 +8,7 @@ body {
     background-size:100%;
     background-attachment: fixed;
 }
+
 #spacer{
     padding: 40px;
 }
@@ -76,7 +77,7 @@ video{
     width: 80%
 }
 
-#navigationbutton {
+section .arts{
     text-decoration: none;
     border: 2px solid black;
     padding: 1em 2em;
@@ -91,7 +92,7 @@ video{
     font-weight: 700;
 }
 
-#navigationbutton:hover {
+section .arts:hover {
 
     border: 2px solid rgb(207, 0, 0);
     color: rgb(219, 0, 0);

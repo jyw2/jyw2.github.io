@@ -45,7 +45,7 @@ ul li {
 }
 
 h1 {
-    font-size: 50px;
+    font-size: 70px;
     margin: auto;
     padding-top: 100px;
     text-transform: uppercase;
@@ -76,11 +76,11 @@ video{
     width: 100%
 }
 
-#navigationbutton {
+section #navigation_button {
     text-decoration: none;
 }
 
-#navigationbutton:hover {
+#navigation_button:hover {
 
     border: 2px solid rgb(207, 0, 0);
     color: rgb(219, 0, 0);
