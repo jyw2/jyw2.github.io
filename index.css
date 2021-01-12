@@ -9,9 +9,7 @@ body {
     background-attachment: fixed;
 }
 
-#spacer{
-    padding: 40px;
-}
+
 
 section {
     width:900px;
@@ -77,7 +75,7 @@ video{
     width: 80%
 }
 
-section .arts{
+section div a{
     text-decoration: none;
     border: 2px solid black;
     padding: 1em 2em;
@@ -92,7 +90,7 @@ section .arts{
     font-weight: 700;
 }
 
-section .arts:hover {
+section div a:hover {
 
     border: 2px solid rgb(207, 0, 0);
     color: rgb(219, 0, 0);

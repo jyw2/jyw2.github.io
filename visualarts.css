@@ -75,12 +75,23 @@ section img {
 video{
     width: 100%
 }
-
-section #navigation_button {
+section div a{
     text-decoration: none;
+    border: 2px solid black;
+    padding: 1em 2em;
+    box-sizing:border-box;
+    color:black;
+    margin-left: 300px;
+    margin-right:300px;
+    margin-top: 50px;
+    margin-bottom:  30px;
+    display: block;
+    border-radius: 10px;
+    font-weight: 700;
 }
 
-#navigation_button:hover {
+section div a:hover {
 
     border: 2px solid rgb(207, 0, 0);
     color: rgb(219, 0, 0);
+}
