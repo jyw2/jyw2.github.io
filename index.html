@@ -25,20 +25,20 @@
         
         <h2>2D Fighter Pipeline Development</h2>
 
-        <h3>During the time I lead a small team of four in the development of a 2D fighting game in Unreal Engine 4,
-            I had the oppurtunity to develop many pipelines and templates to connect my
+        <h3> I had the oppurtunity to lead a small team of four in the development of a 2D fighting game in Unreal Engine 4.
+            During that time, I developed many pipelines and templates to connect my
         artists and programmers. </h3>
         <img src="assets/fighter/Intro.png" alt="">
 
-        <p> To assist the creation of animation, I created and broke down the important animations needed for 
+        <p> To assist the creation of animations, I set synthesized and broke down the important animations needed for 
             every character.
         </p>
         <img src="assets/fighter/breakdowns.jpg" alt="">
         
         <p>
-            I created a workflow for my artists to follow to go from idea to implementable animation. 
+            I also created an animation workflow aand templates for my artists to follow.
             To do this I created templates for animation frames to keep consistant proportions and perspective.
-            I determined that 2048x2048 was the optimum size for sprites to retain quality while keeping file size lower. 
+            I determined that 2048x2048 was the optimum size for sprites to retain quality while keeping file size low. 
             <br>Note: The background image used for screen size reference is not created by me, it is from the game: "Guilty Gear XRD Rev2"
             
         </p><img src="assets/fighter/Animationbase.jpg" alt="">
@@ -54,8 +54,10 @@
         <p>
             The workflow conisted of roughing the animation keys in the template files, then painting tones
             directly in black and white for inbetweens and keys, and finally outlining the edge for each frame. 
-            We would then export each image as a TGA file. The images were then proccessed into Unreal engine
-            "flipbooks" for runtime. The programs used included: Photoshop, Clipstudio and Krita.
+            We would then export each unique frame as a TGA file. The images were then proccessed into Unreal engine
+            "flipbooks" for runtime. Frames that ran for more than one FPS frame had timing manually changed
+            in engine to prevent the creation of multiple duplicate frames in storage.
+            The programs used included: Photoshop, Clipstudio and Krita.
         </p>
         <img src="assets/fighter/Workflow.jpg" alt="">
 
