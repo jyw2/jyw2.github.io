@@ -91,7 +91,7 @@
             you can choose the number of links, the length of the links and the thickness of the links.
             The slider mins and maxes dynamically change to prevent the links from clipping. The links
             are parented to the first link and renamed. A video demonstration can be seen below.
-            <a href="https://github.com/jyw2/Maya-Python-Programs" target = "_blank">Project Repository</a>
+            
             
         </p>
 
@@ -99,38 +99,47 @@
 
         <p>This program uses a window class which first creates the UI.
              This window also has an associated Chain class object. </p>
+             <img src="assets/MayaP_images/1.JPG" alt="">
 
 
         <p>The chain object has associated ring class objects stored in an array. The
             first (root chain) remains at index 0 at all times.</p>
+            <img src="assets/MayaP_images/2.JPG" alt="">
 
         <p>The links are created from a torus shape that has modified subdivisions and edges.
         </p>
+        <img src="assets/MayaP_images/3.JPG" alt="">
 
         <p>
             Every link is moved based on it's position in the chain and its 2 radi.
             Each link is also renamed and parented to the root ring.  
         </p>
+        <img src="assets/MayaP_images/4.JPG" alt="">
 
         <p>
             Whenever the slider is changed, the old chain is deleted and a new chain is created. This is quicky excecuted by deleting the root link and instancing a new Chain class. While the overhead
             may be larger using this strategy VS moving and resizing each link, the implementation is much simpler and more clear. This allows for easier changes, troubleshooting, and teaching. I also reasoned that this program would not be used
             during a runtime of a game, so it's overhead would have less precedence over clarity.
         </p>
+        <img src="assets/MayaP_images/5.JPG" alt="">
 
         <p>
             Changing one of the radius or link radius effects the other's maxes/mins. 
             This is to prevent the links form colliding and clipping through each other.
         </p>
+        <img src="assets/MayaP_images/6.JPG" alt="">
+        <img src="assets/MayaP_images/6.5.JPG" alt="">
 
         <p>
             The cancel button deletes the current root link, removing the chain of poly objects.
         </p>
+        <img src="assets/MayaP_images/7.JPG" alt="">
 
         <p>
             Confirming simply closes the UI window, leaving the chain to be used.
             For the full code visit the <a href="https://github.com/jyw2/Maya-Python-Programs">project repository.</a> 
         </p>
+        <img src="assets/MayaP_images/8.JPG" alt="">
     
 
 
