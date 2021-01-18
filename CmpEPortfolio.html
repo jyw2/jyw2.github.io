@@ -6,85 +6,21 @@
     <title>Josh Wong Portfolio</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="navbar.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="CmpENav.css">
+    <link rel="stylesheet" href="CmpEPortfolio.css">
     <link rel="icon" href="assets/Icon.png">
 </head>
 <body>
     <nav>
         <div id="nav_links">
-            <a href="index.html">Development</a>
-            <a href="visualarts.html">Visual Arts</a>
-           
-        
+            <a href="https://github.com/jyw2?tab=repositories" target = "_blank">Full Github Repository</a>
+
     </nav>
 
 
     <section>
         <h1>Development</h1>
-        
-        <h2>2D Fighter Pipeline Development</h2>
 
-        <h3> I had the oppurtunity to lead a small team of four in the development of a 2D fighting game in Unreal Engine 4.
-            During that time, I developed many pipelines and templates to connect my
-        artists and programmers. </h3>
-        <img src="assets/fighter/Intro.png" alt="">
-
-        <p> To assist the creation of animations, I synthesized and broke down the important animations needed for 
-            every character.
-        </p>
-        <img src="assets/fighter/breakdowns.jpg" alt="">
-        
-        <p>
-            I also created an animation workflow and templates for my artists to follow.
-            To do this I created templates for animation frames to keep consistant proportions and perspective.
-            I determined that 2048x2048 was the optimum size for sprites to retain quality while keeping file size low. 
-            <br>Note: The background image used for screen size reference is not created by me, it is from the game: "Guilty Gear XRD Rev2"
-            
-        </p><img src="assets/fighter/Animationbase.jpg" alt="">
-        <img src="assets/fighter/Backgroundsizetmplate.jpg" alt="">
-
-        <p>
-            These templates were created through extensive research in the strategies of other fighting games.
-            <span class = "subtext"> Images taken from: Street fighter 3rd strike, Under Night In Birth, Skullgirls,
-                 King of Fighters and Blazblue</span>
-        </p>
-        <img src="assets/fighter/Research.jpg" alt="">
-
-        <p>
-            The workflow conisted of roughing the animation keys in the template files, then painting tones
-            directly in black and white for inbetweens and keys, and finally outlining the edge for each frame. 
-            We would then export each unique frame as a TGA file. The images were then proccessed into Unreal engine
-            "flipbooks" for runtime. Frames that ran for more than one FPS frame had timing manually changed
-            in engine to prevent the creation of multiple duplicate frames in storage.
-            The programs used included: Photoshop, Clipstudio and Krita.
-        </p>
-        <img src="assets/fighter/Workflow.jpg" alt="">
-
-
-
-        <p>
-            I also taught my artists to use a color pallete system and non-antiailising workflow.
-        </p>
-        <img src="assets/fighter/Color_grey_diant.jpg" alt="">
-        <img src="assets/fighter/ref.png" alt="">
-
-        <p>
-            The pallete system worked by
-        mapping the specific pixel of shade on one black and white reference pallete to the colored
-        pixel on the colored reference pallete with the same x value. Using this map, it would replace any 
-        shade in the material with that specific value to the mapped color. A demonstration can be viewed below.
-        The method was mainly derived from 
-        <a href="https://www.reddit.com/r/unrealengine/comments/6bkjnn/how_can_i_palette_swap_in_a_material/" target = "_blank">a forum post</a>
-        </p>
-        <video src="assets/fighter/2021-01-11 14-09-26.mp4" type = "video/mp4" controls></video>
-
-        <p>
-            In order to keep a consistant style, I created reference sheets to draw from.
-        </p>
-        <img src="assets/fighter/stylef.png" alt="">
-        <img src="assets/fighter/scale.jpg" alt="">
-       
         <h2>Maya Python Programs</h2>
 
         <p>The following program I developed generates a Poly shape chain of links in Maya 2020. 
@@ -147,7 +83,8 @@
 
         <h2>FIGHTING GAME INPUT SYSTEM</h2>
         <p>I wanted to solve a problem: How do 2d fighters (like street fighter) interpert 
-        commands like down-left-right-punch and turn them into fireballs?</p>
+        commands like down-left-right-punch and turn them into fireballs? <br> <a href="https://streetfighter.fandom.com/wiki/Inputs" target = "_blank">Background information on fighting game commands </a></p>
+         
         <img src="assets/inputsystem/Streetfighter.jpg" alt="">
 
         <p>I began by planning what the system would need. other than the basic task of
@@ -258,7 +195,7 @@
         <p>This current website was built by me in HTML and CSS. A link to the Project Repository
             can be found <a href="https://github.com/jyw2/jyw2.github.io" target = "_blank">here.</a> </p>
         <div>
-            <a href="visualarts.html" id = "arts">View Visual Arts portfolio</a>
+            <a href="https://github.com/jyw2?tab=repositories" id = "arts">View Entire Github</a>
 
         </div>
       
