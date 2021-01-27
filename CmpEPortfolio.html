@@ -42,12 +42,14 @@
             first (root chain) remains at index 0 at all times.</p>
             <img src="assets/MayaP_images/2.JPG" alt="">
 
-        <p>The links are created from a torus shape that has modified subdivisions and edges.
+        <p>The rectangular links(rings) are created from a torus shape that has four slightly stretched loops.
         </p>
         <img src="assets/MayaP_images/3.JPG" alt="">
 
         <p>
             Every link is moved based on it's position in the chain and its 2 radi.
+             The function that determines this distance is: 
+             RingPosition*(ringRadius+(ringRadius - Thickness of a ring)). 
             Each link is also renamed and parented to the root ring.  
         </p>
         <img src="assets/MayaP_images/4.JPG" alt="">
@@ -61,7 +63,7 @@
 
         <p>
             Changing one of the radius or link radius effects the other's maxes/mins. 
-            This is to prevent the links form colliding and clipping through each other.
+            This is to prevent the links from colliding and clipping through each other.
         </p>
         <img src="assets/MayaP_images/6.JPG" alt="">
         <img src="assets/MayaP_images/6.5.JPG" alt="">
@@ -76,7 +78,6 @@
             For the full code visit the <a href="https://github.com/jyw2/Maya-Python-Programs" target = "_blank">project repository.</a> 
         </p>
         <img src="assets/MayaP_images/8.JPG" alt="">
-    
 
 
         
