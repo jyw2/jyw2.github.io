@@ -148,19 +148,32 @@
         
 
         <h2>FIGHTING GAME INPUT SYSTEM</h2>
-        <p>I wanted to solve a problem: How do 2d fighters (like street fighter) interpert 
-        commands like down-left-right-punch and turn them into fireballs?</p>
+        <p>This work shows a full breakdown of my development process</p>
+        <p>I wanted to solve a problem: <br> How do 2d fighters (like street fighter) interpert 
+        directional inputs from the player
+         like down-left-right-punch and turn them into fireballs? 
+         <br> <a href="https://streetfighter.fandom.com/wiki/Inputs" target = "_blank">Background information on fighting game commands </a></p>
+         
         <img src="assets/inputsystem/Streetfighter.jpg" alt="">
 
-        <p>I began by planning what the system would need. other than the basic task of
-            correctly reading the input, it would also have to use a set time frame, include 
-            leniency for wrong inputs and prevent input conflicts.
+        <p>I began by planning what the system would need. Other than the basic task of
+            correctly reading the inputs, the system would also have to:<br>
+            <br> 1. Only read inputs from a set number of seconds. <br>2. Excecute the special move even if the inputs are slightly wrong.
+             <br> 3. Control which special move is excecuted if two different patterns are inputted within the time frame.
+             <br>4. Not excecute a special move twice by accident.
         </p>
         <img src="assets/inputsystem/img1.jpg" alt="">
 
         <p>
-            Next, I came up with the general idea for how to store the inputs. My solution: 
-            a cyclical array. 
+            Next, I brainstormed what data structures to use to store the inputs.
+            Removing from the beginning of a normal array and shifting would cause a very large big O time, so that was not an option.
+            A hashmap did not have the order that I needed.
+            A linked list would work, but another idea I had seen in a midterm exam question proved better.</p>
+        <p>
+            The idea was: an array that itself did not shift, but what you considered the end and beginning of the array did.
+            I stored the newest input in the array at the index held in the variable end. 
+            The oldest input would be in the array at the index held in the variable beg. 
+            Whenever an input was added, it would replace the value at index beg and the two indeces would shift right one.
         </p>
         <img src="assets/inputsystem/img2.jpg" alt="">
         
@@ -171,20 +184,56 @@
         <img src="assets/inputsystem/img3.jpg" alt="">
 
         <p>
-            Finally, I rounded out the planning stage with a general class outline. I used Python 3 for the implementation.
+            For requirement 1, (Set input time frames for the player) I decided to 
+            remove the oldest input every few milliseconds. This was done by
+            adding an input to the array that would not be recognized as valid (None).
+        </p>
+        <img src="assets/inputsystem/img3.1.JPG" alt="">
+
+        <p>
+            To complete requirement 2, (allow slightly off commands) I used a "checklist" system when reading the array for valid special move commands.
+            Each special move had a "checklist" of inputs it needed to see before it could be excecuted. Each time an input
+            on the checklist was seen, it would be "checked". <br><br>
+            An input on the checklist could not be checked until all previous inputs on the checklist had already been checked. 
+            This ensured the order of the command was correct while also allowing incorrect inputs to be inbetween the correct ones.
+        </p>
+        <img src="assets/inputsystem/img 3.2.JPG" alt="">
+
+        <p>
+            For requirement 3 (dont excecute two commands), I simply placed a priority system for each special move. If two moves were read from the array at once,
+            only the higher priority move would excecute.
+        </p>
+        <img src="assets/inputsystem/img3.3.JPG" alt="">
+
+        <p>
+            To solve requirement 4 (only excecute a command once), I removed all 
+            inputs from the array and replaced them with None objects after any special move was found.
+        </p>
+
+        <h2></h2>
+        <p>
+            Next, I rounded out the planning stage with a general class outline.
         </p>
 
         <img src="assets/inputsystem/img4.jpg" alt="">
 
         <p>
-           Note: the implementation uses numpad fighting game notation, more info 
+            After That I created some pseudo code.
+        </p>
+        <img src="assets/inputsystem/img4.1.JPG" alt="">
+        <img src="assets/inputsystem/img4.2.JPG" alt="">
+
+        <p>
+            Finally, after multiple refactors, the code below was created. I used Python 3 for the implementation.
+           Note: the implementation uses numpad fighting game notation, where each direction
+           is represented by a number. For more info click 
             <a href="http://www.dustloop.com/wiki/index.php/Notation" target = "_blank">here.</a>
-            The implemented code stores any special move as a class-
+         <br>   The implemented code stores any special move as a class-
         </p>
         <img src="assets/inputsystem/img5.JPG" alt="">
 
         <p>
-            and the stream as it's own class.
+            and the array( or stream ) as it's own class.
         </p>
         <img src="assets/inputsystem/img6.JPG" alt="">
 
@@ -192,29 +241,29 @@
             It holds all the inputs in an array, and has a distinct beginning(the oldest
             input) and end (the most recent input) 
             index. When an input is added, it is placed at the index of the beginning, replacing
-            the previous value. The end and beg indeces are then shifted one to the right, which
+            the previous value. <br><br> The end and beg indeces are then shifted one to the right, which
             shifts the new input to the end index and the oldest input to the beg index.
             The beg and end indeces will also wrap back around to the left once they reach the end of the array.
         </p>
         <img src="assets/inputsystem/img7.JPG" alt="">
 
         <p>
-            The stream will also replace the oldest input with an empty
+            The array will also replace the oldest input with an empty
             input every few milliseconds. This creates the timing window for
             the command to be excecuted by the player.
         </p>
         <img src="assets/inputsystem/img8.1.JPG" alt="">
         <img src="assets/inputsystem/img8.2.JPG" alt="">
 
-        <p>The stream and all special moves are held in a stream reader class.</p>
+        <p>The array and all special moves are held in a stream reader class.</p>
         <img src="assets/inputsystem/img9.JPG" alt="">
 
         <p>
-            It looks for inputs when triggered by checking each input in the stream against
+            It looks for inputs when triggered by checking each input in the array against
             the specific codes stored in each CMD (special move) class. If an input matches
             the current targeted character in the code, the targeted code is shifted over or "checked". 
             Once the whole code has been checked for a CMD, it is added to a list of
-            found CMDS. This way of "checklisting" the required codes allows the player to
+            found CMDS. <br><br> This way of "checklisting" the required codes allows the player to
             input a slightly off code (such as down-up-right-left-punch where down-right-punch
             is the code) and still get the desired special move.
         </p>
@@ -227,7 +276,7 @@
         </p>
         <img src="assets/inputsystem/img11.JPG" alt="">
 
-        <p>The Stream is then flushed to prevent the reader from reading the same stream information twice
+        <p>The array is then flushed to prevent the reader from reading the same array information twice
             (which can result in unwanted specials being read) </p>
             <img src="assets/inputsystem/img12.JPG" alt="">
 
@@ -255,7 +304,7 @@
         <p>
             For more information and the full code, visit the <a href="https://github.com/jyw2/Input-System" target = "_blank">github repo.</a>
         </p>
-
+        
         <h2>HTML and CSS Website</h2>
         <p>This current website was built by me in HTML and CSS. A link to the Project Repository
             can be found <a href="https://github.com/jyw2/jyw2.github.io" target = "_blank">here.</a> </p>
