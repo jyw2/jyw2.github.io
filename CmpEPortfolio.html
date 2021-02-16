@@ -21,82 +21,34 @@
     <section>
         <h1>Development</h1>
 
-        <h2>Maya Python Programs</h2>
-
-        <p>The following program I developed generates a Poly shape chain of links in Maya 2020. 
-            you can choose the number of links, the length of the links and the thickness of the links.
-            The slider mins and maxes dynamically change to prevent the links from clipping. The links
-            are parented to the first link and renamed. A video demonstration can be seen below.
-            
-            
-        </p>
-
-        <video src="assets/Development Videos/2021-01-17 13-55-34.mp4" type = "video/mp4" controls></video>
-
-        <p>This program uses a window class which first creates the UI.
-             This window also has an associated Chain class object. </p>
-             <img src="assets/MayaP_images/1.JPG" alt="">
-
-
-        <p>The chain object has associated ring class objects stored in an array. The
-            first (root chain) remains at index 0 at all times.</p>
-            <img src="assets/MayaP_images/2.JPG" alt="">
-
-        <p>The rectangular links(rings) are created from a torus shape that has four slightly stretched loops.
-        </p>
-        <img src="assets/MayaP_images/3.JPG" alt="">
-
-        <p>
-            Every link is moved based on it's position in the chain and its 2 radi.
-             The function that determines this distance is: 
-             RingPosition*(ringRadius+(ringRadius - Thickness of a ring)). 
-            Each link is also renamed and parented to the root ring.  
-        </p>
-        <img src="assets/MayaP_images/4.JPG" alt="">
-
-        <p>
-            Whenever the slider is changed, the old chain is deleted and a new chain is created. This is quicky excecuted by deleting the root link and instancing a new Chain class. While the overhead
-            may be larger using this strategy VS moving and resizing each link, the implementation is much simpler and more clear. This allows for easier changes, troubleshooting, and teaching. I also reasoned that this program would not be used
-            during a runtime of a game, so it's overhead would have less precedence over clarity.
-        </p>
-        <img src="assets/MayaP_images/5.JPG" alt="">
-
-        <p>
-            Changing one of the radius or link radius effects the other's maxes/mins. 
-            This is to prevent the links from colliding and clipping through each other.
-        </p>
-        <img src="assets/MayaP_images/6.JPG" alt="">
-        <img src="assets/MayaP_images/6.5.JPG" alt="">
-
-        <p>
-            The cancel button deletes the current root link, removing the chain of poly objects.
-        </p>
-        <img src="assets/MayaP_images/7.JPG" alt="">
-
-        <p>
-            Confirming simply closes the UI window, leaving the chain to be used.
-            For the full code visit the <a href="https://github.com/jyw2/Maya-Python-Programs" target = "_blank">project repository.</a> 
-        </p>
-        <img src="assets/MayaP_images/8.JPG" alt="">
-
-
+        
         
 
         <h2>FIGHTING GAME INPUT SYSTEM</h2>
         <p>I wanted to solve a problem: How do 2d fighters (like street fighter) interpert 
-        commands like down-left-right-punch and turn them into fireballs? <br> <a href="https://streetfighter.fandom.com/wiki/Inputs" target = "_blank">Background information on fighting game commands </a></p>
+        directional inputs from the player
+         like down-left-right-punch and turn them into fireballs? 
+         <br> <a href="https://streetfighter.fandom.com/wiki/Inputs" target = "_blank">Background information on fighting game commands </a></p>
          
         <img src="assets/inputsystem/Streetfighter.jpg" alt="">
 
-        <p>I began by planning what the system would need. other than the basic task of
-            correctly reading the input, it would also have to use a set time frame, include 
-            leniency for wrong inputs and prevent input conflicts.
+        <p>I began by planning what the system would need. Other than the basic task of
+            correctly reading the inputs, the system would also have to:<br>
+            <br> 1. Only read inputs from a set number of seconds. <br>2. Excecute the special move even if the inputs are slightly wrong.
+             <br> 3. Control which special move is excecuted if two different patterns are inputted within the time frame.
         </p>
         <img src="assets/inputsystem/img1.jpg" alt="">
 
         <p>
-            Next, I came up with the general idea for how to store the inputs. My solution: 
-            a cyclical array. 
+            Next, I brainstormed what data structures to use to store the inputs.
+            Inserting to the end of a normal array would cause a very large big O time, so that was not an option.
+            A hashmap did not have the order that I needed.
+            A linked list would work, but another idea I had seen in a midterm exam question proved better.</p>
+        <p>
+            The idea was: an array that itself did not shift, but what you considered the end and beginning of the array did.
+            I stored the newest input in the array at the index held in the variable end. 
+            The oldest input would be in the in the array at the index held in the variable beg. 
+            Whenever an input was added, the two indeces would shift over.
         </p>
         <img src="assets/inputsystem/img2.jpg" alt="">
         
@@ -191,6 +143,66 @@
         <p>
             For more information and the full code, visit the <a href="https://github.com/jyw2/Input-System" target = "_blank">github repo.</a>
         </p>
+
+        <h2>Maya Python Programs</h2>
+
+        <p>The following program I developed generates a Poly shape chain of links in Maya 2020. 
+            you can choose the number of links, the length of the links and the thickness of the links.
+            The slider mins and maxes dynamically change to prevent the links from clipping. The links
+            are parented to the first link and renamed. A video demonstration can be seen below.
+            
+            
+        </p>
+
+        <video src="assets/Development Videos/2021-01-17 13-55-34.mp4" type = "video/mp4" controls></video>
+
+        <p>This program uses a window class which first creates the UI.
+             This window also has an associated Chain class object. </p>
+             <img src="assets/MayaP_images/1.JPG" alt="">
+
+
+        <p>The chain object has associated ring class objects stored in an array. The
+            first (root chain) remains at index 0 at all times.</p>
+            <img src="assets/MayaP_images/2.JPG" alt="">
+
+        <p>The rectangular links(rings) are created from a torus shape that has four slightly stretched loops.
+        </p>
+        <img src="assets/MayaP_images/3.JPG" alt="">
+
+        <p>
+            Every link is moved based on it's position in the chain and its 2 radi.
+             The function that determines this distance is: 
+             RingPosition*(ringRadius+(ringRadius - Thickness of a ring)). 
+            Each link is also renamed and parented to the root ring.  
+        </p>
+        <img src="assets/MayaP_images/4.JPG" alt="">
+
+        <p>
+            Whenever the slider is changed, the old chain is deleted and a new chain is created. This is quicky excecuted by deleting the root link and instancing a new Chain class. While the overhead
+            may be larger using this strategy VS moving and resizing each link, the implementation is much simpler and more clear. This allows for easier changes, troubleshooting, and teaching. I also reasoned that this program would not be used
+            during a runtime of a game, so it's overhead would have less precedence over clarity.
+        </p>
+        <img src="assets/MayaP_images/5.JPG" alt="">
+
+        <p>
+            Changing one of the radius or link radius effects the other's maxes/mins. 
+            This is to prevent the links from colliding and clipping through each other.
+        </p>
+        <img src="assets/MayaP_images/6.JPG" alt="">
+        <img src="assets/MayaP_images/6.5.JPG" alt="">
+
+        <p>
+            The cancel button deletes the current root link, removing the chain of poly objects.
+        </p>
+        <img src="assets/MayaP_images/7.JPG" alt="">
+
+        <p>
+            Confirming simply closes the UI window, leaving the chain to be used.
+            For the full code visit the <a href="https://github.com/jyw2/Maya-Python-Programs" target = "_blank">project repository.</a> 
+        </p>
+        <img src="assets/MayaP_images/8.JPG" alt="">
+
+
 
         <h2>HTML and CSS Website</h2>
         <p>This current website was built by me in HTML and CSS. A link to the Project Repository
